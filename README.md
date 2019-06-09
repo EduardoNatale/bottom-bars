@@ -3,8 +3,10 @@
 A new Flutter package to facilitate the use of personalized bottom bars.
 
 ## Preview
-<img src="https://media.giphy.com/media/2Y8qyXCJS5EkwRR5kS/giphy.gif">
-<img src="https://media.giphy.com/media/2eKoICndjOZ15PTA17/giphy.gif">
+<div>
+  <img src="https://media.giphy.com/media/2Y8qyXCJS5EkwRR5kS/giphy.gif">
+  <img src="https://media.giphy.com/media/2eKoICndjOZ15PTA17/giphy.gif">
+</div>
 
 ## Getting Started
 Add the plugin:
