@@ -15,6 +15,10 @@ dependencies:
   ...
   bottom_bars: ^0.0.1
 ```
+## Import
+```dart
+import 'package:bottom_bars/bottom_bars.dart';
+```
 ## Example Usage
 ```dart
 import 'package:flutter/material.dart';
