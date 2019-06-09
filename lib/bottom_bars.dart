@@ -6,8 +6,10 @@ import 'dart:core';
 import 'package:flutter/widgets.dart';
 
 class BottomBars extends StatefulWidget {
+  final Curve curve;
   final List<Widget> tabs;
   final int type;
+  final bool drag;
   final List<PreferredSizeWidget> appBar;
   final List<Widget> floatingActionButton;
   final Color backgroundColor;
@@ -18,6 +20,8 @@ class BottomBars extends StatefulWidget {
   BottomBars({
     this.backgroundColor = Colors.white,
     @required this.tabs,
+    this.drag = false,
+    this.curve: Curves.ease,
     this.type = 0,
     this.floatingActionButton,
     this.appBar,
@@ -104,13 +108,14 @@ class _BottomBarsState extends State<BottomBars> {
         floatingActionButton: _buildFloatingActionButton(selectedIndex),
         appBar: _buildAppBar(selectedIndex),
         body: PageView(
+          physics: widget.drag ? null : NeverScrollableScrollPhysics(),
           controller: _pageController,
           onPageChanged: (index) async {
             if (widget.items[index].isEnabled == true &&
                 distance(index, _lastIndex) <= 1 &&
                 clicked == false) {
               await _pageController.animateToPage(_lastIndex,
-                  duration: Duration(milliseconds: 300), curve: Curves.ease);
+                  duration: Duration(milliseconds: 300), curve: widget.curve);
               selectedIndex = index;
             } else {
               setState(() {
@@ -186,7 +191,7 @@ class _BottomBarsState extends State<BottomBars> {
               clicked = true;
               _lastIndex = index;
               await _pageController.animateToPage(index,
-                  duration: Duration(milliseconds: 300), curve: Curves.ease);
+                  duration: Duration(milliseconds: 300), curve: widget.curve);
               clicked = false;
               setState(() {
                 selectedIndex = index;
@@ -217,7 +222,7 @@ class _BottomBarsState extends State<BottomBars> {
                     _lastIndex = index;
                     await _pageController.animateToPage(index,
                         duration: Duration(milliseconds: 300),
-                        curve: Curves.ease);
+                        curve: widget.curve);
                     clicked = false;
                     setState(() {
                       selectedIndex = index;
