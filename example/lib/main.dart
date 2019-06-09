@@ -25,6 +25,7 @@ class _TabsPageState extends State<TabsPage> {
   @override
   Widget build(BuildContext context) {
     return BottomBars(
+      drag: true,
       type: 0,
       floatingActionButton: [
         FloatingActionButton(
