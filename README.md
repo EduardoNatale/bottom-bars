@@ -103,7 +103,7 @@ class _TabsPageState extends State<TabsPage> {
 ### BottomBars
 
 + **@required tabs** - Your pages that probably you'd use in PageView
-+ **@required items** - Your items <BottomBarsItem>
++ **@required items** - Your items (BottomBarsItem)
 + **appBar** - Your appBar (it's a list because each tab has a appBar)
 + **floatingActionButton** - Yout floatingActionButton (same idea of appBar)
 + **backgroundColor** - bottomBar color
