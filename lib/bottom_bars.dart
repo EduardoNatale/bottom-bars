@@ -20,7 +20,7 @@ class BottomBars extends StatefulWidget {
       this.floatingActionButton,
       this.appBar,
       this.colorItems = Colors.black,
-      this.selectedIndex = 0,
+      @required this.selectedIndex,
       this.iconSize = 24,
       @required this.items,
       @required this.onItemSelected}) {
@@ -122,6 +122,7 @@ class _BottomBarsState extends State<BottomBars> {
         children: widget.tabs,
       ),
       bottomNavigationBar: Container(
+        color: widget.backgroundColor,
         padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
         width: double.infinity,
         height: 56,

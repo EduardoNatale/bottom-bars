@@ -97,3 +97,24 @@ class _TabsPageState extends State<TabsPage> {
   }
 }
 ```
+
+## Modifications
+
+### BottomBars
+
++ @required tabs - Your pages that probably you'd use in PageView
++ appBar - Your appBar (it's a list because each tab has a appBar)
++ floatingActionButton - Yout floatingActionButton (same idea of appBar)
++ backgroundColor - bottomBar color
++ @required selectedIndex - Current index of item (set it 0)
++ iconSize - Icon's size
++ colorItems - Color of each item
++ @required items - Your items <BottomBarsItem>
++ @required onItemSelected - A function that happens when you tapped the button item
+
+### BottomBarsItem
+
++ @required icon - Item's icon
++ @required title - Item's title
++ color - Item's color when is active
++ isEnabled - Gets enabled when it is enabled
