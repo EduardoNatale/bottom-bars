@@ -14,7 +14,7 @@ Add the plugin:
 ```yaml
 dependencies:
   ...
-  bottom_bars: ^0.0.1
+  bottom_bars: ^1.0.1
 ```
 ## Import
 ```dart
