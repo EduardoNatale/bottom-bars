@@ -111,7 +111,7 @@ class _TabsPageState extends State<TabsPage> {
 + **colorItems** - Color of each item
 + **type** - Bottom Bar's type
 + **drag** - If you can drag the screen
-+ **cruve** - Curver's type
++ **curve** - Curver's type
 
 ### BottomBarsItem
 
