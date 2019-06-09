@@ -3,7 +3,7 @@
 A new Flutter package to facilitate the use of personalized bottom bars.
 
 ## Preview
-
+<img src="./preview.mp4">
 ## Example gif
 
 ## Getting Started
