@@ -1,6 +1,7 @@
 library bottom_bars;
 
 import 'package:flutter/material.dart';
+import 'dart:core';
 
 class BottomBars extends StatefulWidget {
   final List<Widget> tabs;
@@ -38,9 +39,9 @@ class BottomBars extends StatefulWidget {
 class _BottomBarsState extends State<BottomBars> {
   final _pageController = PageController();
   int _lastIndex = 0;
+  bool clicked = false;
 
   Widget _buildItem(BottomBarsItem item, bool isSelected) {
-    print(widget.selectedIndex);
     return AnimatedContainer(
       margin: EdgeInsets.only(top: 8, bottom: 8),
       width: isSelected ? 130 : 50,
@@ -48,8 +49,7 @@ class _BottomBarsState extends State<BottomBars> {
       duration: Duration(milliseconds: 300),
       padding: EdgeInsets.only(left: 8),
       decoration: BoxDecoration(
-        color:
-            isSelected ? item.color.withOpacity(0.2) : widget.backgroundColor,
+        color: isSelected ? item.color.withOpacity(0.2) : Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(50)),
       ),
       child: ListView(
@@ -89,6 +89,13 @@ class _BottomBarsState extends State<BottomBars> {
     );
   }
 
+  int distance(x, y) {
+    if ((x - y) < 0)
+      return (x - y) * -1;
+    else
+      return (x - y);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,15 +103,19 @@ class _BottomBarsState extends State<BottomBars> {
       appBar: _buildAppBar(widget.selectedIndex),
       body: PageView(
         controller: _pageController,
-        onPageChanged: (index) {
-          if (widget.items[index].isEnabled == true)
-            _pageController.animateToPage(_lastIndex,
+        onPageChanged: (index) async {
+          print(distance(index, _lastIndex));
+          if (widget.items[index].isEnabled == true &&
+              distance(index, _lastIndex) <= 1 &&
+              clicked == false) {
+            await _pageController.animateToPage(_lastIndex,
                 duration: Duration(milliseconds: 300), curve: Curves.ease);
-          else {
+            widget.selectedIndex = index;
+          } else {
             widget.onItemSelected(index);
-            _lastIndex = index;
             setState(() {
               widget.selectedIndex = index;
+              _lastIndex = index;
             });
           }
         },
@@ -121,14 +132,17 @@ class _BottomBarsState extends State<BottomBars> {
             return GestureDetector(
               onTap: item.isEnabled
                   ? null
-                  : () {
+                  : () async {
                       widget.onItemSelected(index);
+                      clicked = true;
                       _lastIndex = index;
+
+                      await _pageController.animateToPage(index,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.ease);
+                      clicked = false;
                       setState(() {
                         widget.selectedIndex = index;
-                        _pageController.animateToPage(index,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.ease);
                       });
                     },
               child: _buildItem(item, index == widget.selectedIndex),

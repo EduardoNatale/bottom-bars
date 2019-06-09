@@ -2,7 +2,7 @@ name: bottom_bars
 description: A new Flutter package to facilitate the use of personalized bottom bars.
 version: 0.0.1
 author: Eduardo Natale Costa
-homepage: https://github.com/EduardoNatale/bottom_bars
+homepage: https://github.com/EduardoNatale/bottom-bars
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
