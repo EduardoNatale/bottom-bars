@@ -1,6 +1,6 @@
 # bottom_bars
 
-A new Flutter package project.
+A new Flutter package to facilitate the use of personalized bottom bars.
 
 ## Getting Started
 
