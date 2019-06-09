@@ -7,11 +7,10 @@ class TabsPage extends StatefulWidget {
 }
 
 class _TabsPageState extends State<TabsPage> {
-  int _index = 0;
-
   @override
   Widget build(BuildContext context) {
     return BottomBars(
+      type: 0,
       floatingActionButton: [
         FloatingActionButton(
           onPressed: () {},
@@ -46,12 +45,6 @@ class _TabsPageState extends State<TabsPage> {
           color: Colors.green,
         ),
       ],
-      selectedIndex: _index,
-      onItemSelected: (index) {
-        setState(() {
-          _index = index;
-        });
-      },
       items: [
         BottomBarsItem(
             icon: Icon(Icons.group),

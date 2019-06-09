@@ -24,11 +24,10 @@ class TabsPage extends StatefulWidget {
 }
 
 class _TabsPageState extends State<TabsPage> {
-  int _index = 0;
-
   @override
   Widget build(BuildContext context) {
     return BottomBars(
+      type: 0,
       floatingActionButton: [
         FloatingActionButton(
           onPressed: () {},
@@ -63,12 +62,6 @@ class _TabsPageState extends State<TabsPage> {
           color: Colors.green,
         ),
       ],
-      selectedIndex: _index,
-      onItemSelected: (index) {
-        setState(() {
-          _index = index;
-        });
-      },
       items: [
         BottomBarsItem(
             icon: Icon(Icons.group),
@@ -103,14 +96,13 @@ class _TabsPageState extends State<TabsPage> {
 ### BottomBars
 
 + **@required tabs** - Your pages that probably you'd use in PageView
++ **@required items** - Your items <BottomBarsItem>
 + **appBar** - Your appBar (it's a list because each tab has a appBar)
 + **floatingActionButton** - Yout floatingActionButton (same idea of appBar)
 + **backgroundColor** - bottomBar color
-+ **@required selectedIndex** - Current index of item (set it 0)
 + **iconSize** - Icon's size
 + **colorItems** - Color of each item
-+ **@required items** - Your items <BottomBarsItem>
-+ **@required onItemSelected** - A function that happens when you tapped the button item
++ **type** - Bottom Bar's type
 
 ### BottomBarsItem
 
