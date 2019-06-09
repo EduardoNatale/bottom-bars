@@ -1,6 +1,7 @@
 # BottomBars
 
 A new Flutter package to facilitate the use of personalized bottom bars.
+[Package](https://pub.dev/packages/bottom_bars/)
 
 ## Preview
 <div>
