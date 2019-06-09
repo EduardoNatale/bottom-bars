@@ -4,8 +4,6 @@ A new Flutter package to facilitate the use of personalized bottom bars.
 
 ## Preview
 <img src="https://media.giphy.com/media/2Y8qyXCJS5EkwRR5kS/giphy.gif">
-
-## Example
 <img src="https://media.giphy.com/media/2eKoICndjOZ15PTA17/giphy.gif">
 
 ## Getting Started
