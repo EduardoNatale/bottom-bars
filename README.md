@@ -106,7 +106,7 @@ class _TabsPageState extends State<TabsPage> {
 + **appBar** - Your appBar (it's a list because each tab has a appBar)
 + **floatingActionButton** - Yout floatingActionButton (same idea of appBar)
 + **backgroundColor** - bottomBar color
-+ **@required** selectedIndex - Current index of item (set it 0)
++ **@required selectedIndex** - Current index of item (set it 0)
 + **iconSize** - Icon's size
 + **colorItems** - Color of each item
 + **@required items** - Your items <BottomBarsItem>
