@@ -8,9 +8,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Animations Flutter",
+      title: "BottomBars",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        //   selectedIconTheme: IconThemeData(color: Colors.yellow),
+        //   selectedItemColor: Colors.purple,
+        //   unselectedItemColor: Colors.pink,
+        // ),
+      ),
+      // darkTheme: ThemeData.dark(),
+      // themeMode: ThemeMode.dark,
       home: TabsPage(),
     );
   }
@@ -25,65 +34,46 @@ class _TabsPageState extends State<TabsPage> {
   @override
   Widget build(BuildContext context) {
     return BottomBars(
-      drag: true,
-      type: 0,
-      floatingActionButton: [
-        FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.backspace),
-        ),
-        null,
-        null,
-        FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.backspace),
-        ),
-      ],
-      appBar: [
-        AppBar(
-          title: Text("AppBar"),
-        )
-      ],
-      tabs: <Widget>[
-        Container(
-          color: Colors.yellow,
-        ),
-        Container(
-          color: Colors.red,
-        ),
-        Container(
-          color: Colors.green,
-        ),
-        Container(
-          color: Colors.red,
-        ),
-        Container(
-          color: Colors.green,
-        ),
-      ],
       items: [
         BottomBarsItem(
-            icon: Icon(Icons.group),
+          page: Scaffold(
+            floatingActionButton: FloatingActionButton(onPressed: () {}),
+          ),
+          item: Item(
+            icon: Icons.group,
             title: Text("Group"),
-            color: Colors.blueAccent),
+          ),
+        ),
         BottomBarsItem(
-            icon: Icon(Icons.apps),
+          page: Scaffold(
+            appBar: AppBar(
+              title: Text("Audio"),
+            ),
+            floatingActionButton: FloatingActionButton(onPressed: () {}),
+          ),
+          item: Item(
+            icon: Icons.ac_unit_outlined,
+            title: Text("Audio"),
+          ),
+        ),
+        BottomBarsItem(
+          page: Scaffold(backgroundColor: Colors.yellow),
+          item: Item(
+            icon: Icons.home,
             title: Text("Home"),
-            color: Colors.blueAccent,
-            isEnabled: true),
+            color: Colors.grey,
+            activeColor: Colors.yellow,
+          ),
+        ),
         BottomBarsItem(
-            icon: Icon(Icons.settings),
+          page: Scaffold(backgroundColor: Colors.red),
+          item: Item(
+            icon: Icons.settings,
             title: Text("Settings"),
-            color: Colors.blueAccent),
-        BottomBarsItem(
-            icon: Icon(Icons.apps),
-            title: Text("Home"),
-            color: Colors.blueAccent),
-        BottomBarsItem(
-            icon: Icon(Icons.settings),
-            title: Text("Settings"),
-            color: Colors.blueAccent,
-            isEnabled: true),
+            color: Colors.grey,
+            activeColor: Colors.red,
+          ),
+        ),
       ],
     );
   }
