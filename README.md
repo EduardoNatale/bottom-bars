@@ -2,7 +2,7 @@
 
 [![Pub](https://img.shields.io/pub/v/bottom_bars.svg)](https://pub.dev/packages/bottom_bars)
 
-A easier way to create bottom bars in Flutter.
+An easier way to create bottom bars in Flutter.
 
 ## Preview
 
